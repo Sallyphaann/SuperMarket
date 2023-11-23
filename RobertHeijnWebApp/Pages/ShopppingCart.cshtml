@@ -1,0 +1,70 @@
+﻿@page
+@model RobertHeijnWebApp.Pages.ShopppingCartModel
+@{
+}
+
+<br />
+<h2>Shopping Cart</h2>
+<form method="post">
+
+
+	<table class = "table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th></th>
+				<th>Amount</th>
+				<th></th>
+				<th>Price</th>
+				<th>Unit</th>
+				<th>Total price</th>
+			</tr>
+		</thead>
+		<tbody>
+		@if (@Model.cart.Count > 0)
+			{
+				decimal sum = 0;
+				int stt = 1;
+				@foreach (var item in @Model.cart)
+				{
+
+
+					var total = @item.Amount * @item.Product.Price;
+					sum += total;
+					<tr>
+
+						<td>@(stt++)</td>
+						<td>@item.Product.Name </td>
+						<td><a class = "btn btn-info" href ="/PlusItem?id=@item.Id">+</a></td>
+						<td>@item.Amount</td>
+						<td><a class = "btn btn-info" href ="/Minus?id=@item.Id">-</a></td>
+						<td>@item.Product.Price</td>
+						<td>@item.Product.Unit</td>
+						<td>@total</td>
+						<td>
+							<a class = "btn btn-primary btn-danger" href ="/Delete?id=@item.Id">Remove</a>
+						</td>
+					</tr>
+				}
+				<tr>
+					<td colspan="4" class="text-right">Total</td>
+					<td></td>
+					<td>@sum </td>
+
+
+				</tr>
+
+			}
+		</tbody>
+		
+
+	</table>
+
+<div class="clear-checkout">
+	<button class="checkout">Checkout</button>
+    <a class = "btn btn-primary btn-danger" href ="/Clear">Clear Cart</a>
+</div>
+
+
+</form>

@@ -1,0 +1,13 @@
+﻿@page
+@model RobertHeijnWebApp.Pages.AddtoCartModel
+@{
+}
+<form method="post">
+<input type ="hidden" asp-for="ProductForm.ID" value="@Model.ProductForm.ID" class="form-control" readonly="readonly">
+@*<input asp-for="ProductForm.Name" value="@Model.ProductForm.Name" class="form-control" readonly="readonly">
+<input asp-for="ProductForm.Price" value="@Model.ProductForm.Price" class="form-control" readonly="readonly">
+<input asp-for="ProductForm.Unit" value="@Model.ProductForm.Unit" class="form-control" readonly="readonly">
+<input asp-for="Amount.Amount" value="1" class="form-control" readonly="readonly">*@
+<button class="btn btn-primary"> Submit </button>
+
+</form>

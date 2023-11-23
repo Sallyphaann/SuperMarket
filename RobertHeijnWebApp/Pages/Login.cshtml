@@ -1,0 +1,33 @@
+﻿@page
+@model RobertHeijnWebApp.Pages.LoginModel
+@{
+}
+<section class ="login" id ="login">
+	<form method ="post">
+		<div class = "loginbox ">
+			<h2>Login here :</h2>
+		
+         <div class="txtName">
+        <label asp-for="LoginForm.UserName">Username</label>
+        <input type="text" asp-for="LoginForm.UserName" placeholder="Your username" /> <br />
+        <span asp-validation-for="LoginForm.UserName" class="text-danger"></span>
+		<br />
+        <label asp-for="LoginForm.Password">Password</label>
+        <input type="password" asp-for="LoginForm.Password" placeholder="Your password" /><br />
+        <span asp-validation-for="LoginForm.Password" class="text-danger"></span>
+		<br />
+		<div class ="btnlogin">
+		<button type="submit">Login</button>
+		<input type="reset" value="Cancel"/>
+		</div>
+		 <p >Dont you have an account yet?</p>
+         <p ><a asp-page="/Register">Click here</a>to create new accout</p>
+		 
+		</div>
+		</div>
+	</form>
+
+</section>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

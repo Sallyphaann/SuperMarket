@@ -1,0 +1,25 @@
+﻿@page
+@model RobertHeijnWebApp.Pages.ProductModel
+@{
+}
+@*<div class="card-columns">*@
+    <form method="post">
+    @foreach (var product in @Model.ListProduct)
+    {
+        <div class="card-columns">
+        <div class=card>
+            <h3 class="card-header">@product.Name</h3>
+            <div class="card-body" style="height: 150px; width :50px">   
+            </div>
+            <div class="card-footer">
+                <span class="text-muted">@(product.Price.ToString())Euros</span>    
+                @*a asp-route="/AddtoCart" asp-route-id="@product.ID"*@
+                <a href="/AddtoCart?id=@product.ID" class="btn btn-secondary btn-sm float-right">Add to Cart</a>
+                
+            </div>
+        </div>
+        </div>
+    }
+    </form>
+@*</div>*@
+ 
